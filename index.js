@@ -10,9 +10,10 @@ require('./models/User');
 require('./models/Survey');
 require('./services/passport');
 
-mongoose.connect(keys.mongoURI, () => {
-  console.log('Connected to MongoDB');
-});
+mongoose
+  .connect(keys.mongoURI)
+  .then(() => console.log('MongoDB connected'))
+  .catch((err) => console.log(err));
 
 const app = express();
 
